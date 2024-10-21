@@ -1,0 +1,16 @@
+.RT9013-33GB :1 ;RICHTEK - RT9013-33GB - IC, LDO, FIXED, 3.3V, 0.5A, SOT-23-5
+SOT94P279X130-5N
+*STM PS
+*NGS
+*PLB 1="VIN" 2="GND" 3="EN" 4="NC" 5="VOUT"
+*MXP 5
+*DFN RT9013-33GB
+~!Mouser Part Number (835-RT9013-33GB)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/Richtek/RT9013-33GB?qs=amGC7iS6iy%2FHaDkSgZH71g%3D%3D)
+~!Manufacturer_Name (RICHTEK)
+~!Manufacturer_Part_Number (RT9013-33GB)
+~!Link Datasheet (https://www.richtek.com/assets/product_file/RT9013/DS9013-10.pdf)
+~!Height (1.295mm)
+~!3D_Model (RT9013-33GB)
+RT9013-33GB
+1.1!U 2.1!U 3.1!U 4.1!U 5.1!U 

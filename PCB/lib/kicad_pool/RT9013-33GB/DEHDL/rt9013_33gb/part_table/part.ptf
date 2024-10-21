@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'RT9013_33GB'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "RICHTEK", "RT9013-33GB" (!) = "", "SOT94P279X130-5N", "SOT23 (5-Pin)", "835-RT9013-33GB", "https://www.mouser.co.uk/ProductDetail/Richtek/RT9013-33GB?qs=amGC7iS6iy%2FHaDkSgZH71g%3D%3D", "RICHTEK - RT9013-33GB - IC, LDO, FIXED, 3.3V, 0.5A, SOT-23-5", "https://www.richtek.com/assets/product_file/RT9013/DS9013-10.pdf", "1.295 mm"
+END_PART
+
+END.
