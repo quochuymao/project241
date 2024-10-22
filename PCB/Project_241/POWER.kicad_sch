@@ -2192,7 +2192,7 @@
 	)
 	(wire
 		(pts
-			(xy 177.292 117.602) (xy 172.72 117.602)
+			(xy 177.546 117.602) (xy 172.72 117.602)
 		)
 		(stroke
 			(width 0)
@@ -2472,7 +2472,7 @@
 	)
 	(wire
 		(pts
-			(xy 177.292 115.062) (xy 177.292 117.602)
+			(xy 177.546 115.57) (xy 177.546 117.602)
 		)
 		(stroke
 			(width 0)
@@ -4015,7 +4015,7 @@
 	)
 	(symbol
 		(lib_id "power:VDD")
-		(at 177.292 115.062 0)
+		(at 177.546 115.57 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4023,7 +4023,7 @@
 		(dnp no)
 		(uuid "b76c7197-0928-468d-ab5f-29c3f9f03ebc")
 		(property "Reference" "#PWR037"
-			(at 177.292 118.872 0)
+			(at 177.546 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4032,7 +4032,7 @@
 			)
 		)
 		(property "Value" "VDD"
-			(at 177.292 111.506 0)
+			(at 177.546 112.014 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4040,7 +4040,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 177.292 115.062 0)
+			(at 177.546 115.57 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4049,7 +4049,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 177.292 115.062 0)
+			(at 177.546 115.57 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4058,7 +4058,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"VDD\""
-			(at 177.292 115.062 0)
+			(at 177.546 115.57 0)
 			(effects
 				(font
 					(size 1.27 1.27)
