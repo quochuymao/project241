@@ -525,7 +525,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "project241_footprint:SOT23_5"
 			(at 2.54 0 0)
 			(effects
 				(font
