@@ -1,0 +1,72 @@
+(Japanese_coding: sjis)
+(function "ECS_12378662"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2019-09-24-12:02:57)
+    (utime 2023-03-07-16:10:32)
+    (interface
+        (port "A1" (symbPinId 1) (portType INOUT))
+        (port "B1" (symbPinId 2) (portType INOUT))
+        (port "C1" (symbPinId 3) (portType INOUT))
+    )
+    (property "symbolName" "EVM-3ESX50B14")
+)
+
+
+(pinAssign "ECS_12378662"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2019-09-24-12:02:57)
+    (utime 2023-03-07-16:10:32)
+    (interface
+        (port "A1" (symbPinId 1) (portName "A1") (portType INOUT))
+        (port "B1" (symbPinId 2) (portName "B1") (portType INOUT))
+        (port "C1" (symbPinId 3) (portName "C1") (portType INOUT))
+    )
+    (internal
+        (funcInst (functionRef "ECS_12378662")
+                (port "A1" (match "A1"))
+                (port "B1" (match "B1"))
+                (port "C1" (match "C1"))
+        )
+    )
+    (property "usePowerBox" "No")
+    (property "symbolName" "EVM-3ESX50B14")
+)
+
+
+(part "EVM-3ESX50B14"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2019-09-24-12:02:57)
+    (utime 2023-03-07-16:10:32)
+    (packageRef "EVM-3ESX50B14")
+    (pinAssignRef "ECS_12378662")
+    (interface
+        (port "A1" (symbPinId 1) (portName "A1") (portType INOUT))
+        (port "B1" (symbPinId 2) (portName "B1") (portType INOUT))
+        (port "C1" (symbPinId 3) (portName "C1") (portType INOUT))
+    )
+    (partClass UNDEF)
+    (useInSchema Y)
+    (useInLayout Y)
+    (inPartsList Y)
+    (partType NORMAL)
+    (placeRestriction FREE)
+    (property "enetNonSeries" "NO")
+    (property "refDesPrefix" "VR")
+    (property "description" "Variable Resistors +/-25% 10KOhms +/-250 ppm/C SMD RoHS")
+    (property "Manufacturer_Name" "Panasonic")
+    (property "Manufacturer_Part_Number" "EVM-3ESX50B14")
+    (property "Mouser_Part_Number" "667-EVM-3ESX50B14")
+    (property "Mouser_Price/Stock" "https://www.mouser.co.uk/ProductDetail/Panasonic/EVM-3ESX50B14?qs=W5Ux%2F5YWIN6KGDoxXL8LqQ%3D%3D")
+    (property "Arrow_Part_Number" "")
+    (property "Arrow_Price/Stock" "")
+    (property "Datasheet_Link" "https://industrial.panasonic.com/cdbs/www-data/pdf/AOI0000/AOI0000C51.pdf")
+    (property "compAreaTopHeight" 1.62)
+)
+
+

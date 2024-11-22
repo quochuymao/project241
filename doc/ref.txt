@@ -1,1 +1,7 @@
+tools:
+https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-pcb-trace-width
+
 https://github.com/SMotlaq/LoRa
+Hall sensor def: https://www.ti.com/lit/ta/sszt164/sszt164.pdf
+Humid: https://atlas-scientific.com/blog/what-is-a-humidity-sensor/
+I2C: https://www.ti.com/lit/an/sbaa565/sbaa565.pdf

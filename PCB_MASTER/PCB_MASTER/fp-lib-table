@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "Master_Board")(type "KiCad")(uri "C:/BACHKHOA/HK241/DOANTOTNGHIEP/project241/PCB_MASTER/lib/footprint/Master_Board.pretty")(options "")(descr ""))
+)

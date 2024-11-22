@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'EVM_3ESX50B14'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "ARROW_PART_NUMBER", "ARROW_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Panasonic", "EVM-3ESX50B14" (!) = "", "EVM3ESX50B14", "Other", "667-EVM-3ESX50B14", "https://www.mouser.co.uk/ProductDetail/Panasonic/EVM-3ESX50B14?qs=W5Ux%2F5YWIN6KGDoxXL8LqQ%3D%3D", "", "", "Variable Resistors +/-25% 10KOhms +/-250 ppm/C SMD RoHS", "https://industrial.panasonic.com/cdbs/www-data/pdf/AOI0000/AOI0000C51.pdf", "1.62 mm"
+END_PART
+
+END.

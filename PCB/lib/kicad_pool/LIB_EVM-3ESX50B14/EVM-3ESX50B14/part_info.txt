@@ -1,0 +1,9 @@
+Manufacturer=Panasonic
+PartNumber=EVM-3ESX50B14
+PartCategory=Variable Resistor
+PackageCategory=Other
+PinCount=3
+Version=1.2
+Released=2019-09-24 12:02:57
+Downloaded=2024-11-08 03:43:31
+3D=Y
