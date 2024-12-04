@@ -1,0 +1,26 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#SamacSys ECAD Model EVM-3ESX50B14
+#/12378662/1481195/2.50/3/4/Variable Resistor
+DEF EVM-3ESX50B14 VR 0 30 Y Y 1 F N
+F0 "VR" 750 300 50 H V L CNN
+F1 "EVM-3ESX50B14" 750 200 50 H V L CNN
+F2 "EVM3ESX50B14" 750 100 50 H I L CNN
+F3 "https://industrial.panasonic.com/cdbs/www-data/pdf/AOI0000/AOI0000C51.pdf" 750 0 50 H I L CNN
+F4 "Variable Resistors +/-25% 10KOhms +/-250 ppm/C SMD RoHS" 750 -100 50 H I L CNN "Description"
+F5 "1.62" 750 -200 50 H I L CNN "Height"
+F6 "Panasonic" 750 -300 50 H I L CNN "Manufacturer_Name"
+F7 "EVM-3ESX50B14" 750 -400 50 H I L CNN "Manufacturer_Part_Number"
+F8 "667-EVM-3ESX50B14" 750 -500 50 H I L CNN "Mouser Part Number"
+F9 "https://www.mouser.co.uk/ProductDetail/Panasonic/EVM-3ESX50B14?qs=W5Ux%2F5YWIN6KGDoxXL8LqQ%3D%3D" 750 -600 50 H I L CNN "Mouser Price/Stock"
+F10 "" 750 -700 50 H I L CNN "Arrow Part Number"
+F11 "" 750 -800 50 H I L CNN "Arrow Price/Stock"
+DRAW
+X A1 A1 0 0 200 R 50 50 0 0 P
+X B1 B1 900 0 200 L 50 50 0 0 P
+X C1 C1 0 -100 200 R 50 50 0 0 P
+P 5 0 1 6 200 100 700 100 700 -200 200 -200 200 100 N
+ENDDRAW
+ENDDEF
+#
+#End Library

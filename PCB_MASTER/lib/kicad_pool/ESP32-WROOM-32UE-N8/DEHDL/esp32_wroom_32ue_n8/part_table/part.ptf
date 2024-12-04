@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'ESP32_WROOM_32UE_N8'
+CLASS = IC
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Espressif Systems", "ESP32-WROOM-32UE-N8" (!) = "", "ESP32WROOM32UEN8", "Other", "356-ESP32WRM32UE64UH", "https://www.mouser.co.uk/ProductDetail/Espressif-Systems/ESP32-WROOM-32UE-N8?qs=Li%252BoUPsLEntX6CSaKZB9vw%3D%3D", "Multiprotocol Modules SMD module ESP32-WROOM-32UE, ESP32-D0WD-V3, ESP32 ECO V3, 8 MB SPI flash, IPEX antenna connector", "https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32e_esp32-wroom-32ue_datasheet_en.pdf", "3.35 mm"
+END_PART
+
+END.

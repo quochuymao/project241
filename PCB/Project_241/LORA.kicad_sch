@@ -573,28 +573,28 @@
 		)
 	)
 	(no_connect
-		(at 154.686 99.568)
+		(at 163.322 101.6)
 		(uuid "2804b6ca-91ab-4c92-aaea-49a5cc50f79f")
 	)
 	(no_connect
-		(at 154.686 89.408)
+		(at 163.322 91.44)
 		(uuid "4490928f-948d-45bb-90b0-7dfeaa459f91")
 	)
 	(no_connect
-		(at 154.686 94.488)
+		(at 163.322 96.52)
 		(uuid "7f7efe27-dc96-4033-84b8-855b0afbe9ab")
 	)
 	(no_connect
-		(at 154.686 91.948)
+		(at 163.322 93.98)
 		(uuid "a6a25b62-f3ef-485e-8d21-840b525ad41d")
 	)
 	(no_connect
-		(at 154.686 97.028)
+		(at 163.322 99.06)
 		(uuid "dc771fcb-fee8-41ba-875d-5bf4aaf2035e")
 	)
 	(wire
 		(pts
-			(xy 159.004 81.788) (xy 154.686 81.788)
+			(xy 167.64 83.82) (xy 163.322 83.82)
 		)
 		(stroke
 			(width 0)
@@ -604,7 +604,7 @@
 	)
 	(wire
 		(pts
-			(xy 120.65 91.948) (xy 124.206 91.948)
+			(xy 129.286 93.98) (xy 132.842 93.98)
 		)
 		(stroke
 			(width 0)
@@ -614,7 +614,7 @@
 	)
 	(wire
 		(pts
-			(xy 120.65 97.028) (xy 124.206 97.028)
+			(xy 129.286 99.06) (xy 132.842 99.06)
 		)
 		(stroke
 			(width 0)
@@ -624,7 +624,7 @@
 	)
 	(wire
 		(pts
-			(xy 120.65 94.488) (xy 124.206 94.488)
+			(xy 129.286 96.52) (xy 132.842 96.52)
 		)
 		(stroke
 			(width 0)
@@ -634,7 +634,7 @@
 	)
 	(wire
 		(pts
-			(xy 157.734 86.868) (xy 154.686 86.868)
+			(xy 166.37 88.9) (xy 163.322 88.9)
 		)
 		(stroke
 			(width 0)
@@ -644,7 +644,7 @@
 	)
 	(wire
 		(pts
-			(xy 120.65 86.868) (xy 124.206 86.868)
+			(xy 129.286 88.9) (xy 132.842 88.9)
 		)
 		(stroke
 			(width 0)
@@ -654,7 +654,7 @@
 	)
 	(wire
 		(pts
-			(xy 156.21 104.394) (xy 156.21 103.378)
+			(xy 164.846 106.426) (xy 164.846 105.41)
 		)
 		(stroke
 			(width 0)
@@ -664,7 +664,7 @@
 	)
 	(wire
 		(pts
-			(xy 159.004 77.47) (xy 159.004 81.788)
+			(xy 167.64 79.502) (xy 167.64 83.82)
 		)
 		(stroke
 			(width 0)
@@ -674,7 +674,7 @@
 	)
 	(wire
 		(pts
-			(xy 120.65 99.568) (xy 124.206 99.568)
+			(xy 129.286 101.6) (xy 132.842 101.6)
 		)
 		(stroke
 			(width 0)
@@ -684,7 +684,7 @@
 	)
 	(wire
 		(pts
-			(xy 156.21 103.378) (xy 154.686 103.378)
+			(xy 164.846 105.41) (xy 163.322 105.41)
 		)
 		(stroke
 			(width 0)
@@ -694,7 +694,7 @@
 	)
 	(hierarchical_label "SCK"
 		(shape input)
-		(at 120.65 94.488 180)
+		(at 129.286 96.52 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -706,7 +706,7 @@
 	)
 	(hierarchical_label "DIO1"
 		(shape input)
-		(at 157.734 86.868 0)
+		(at 166.37 88.9 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -716,9 +716,9 @@
 		)
 		(uuid "55a2d358-2232-4518-bbe8-e0d71b82bb3e")
 	)
-	(hierarchical_label "RESET"
+	(hierarchical_label "LORA_RESET"
 		(shape input)
-		(at 120.65 86.868 180)
+		(at 129.286 88.9 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -730,7 +730,7 @@
 	)
 	(hierarchical_label "NSS"
 		(shape input)
-		(at 120.65 91.948 180)
+		(at 129.286 93.98 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -742,7 +742,7 @@
 	)
 	(hierarchical_label "MISO"
 		(shape input)
-		(at 120.65 99.568 180)
+		(at 129.286 101.6 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -754,7 +754,7 @@
 	)
 	(hierarchical_label "MOSI"
 		(shape input)
-		(at 120.65 97.028 180)
+		(at 129.286 99.06 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -766,7 +766,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 156.21 104.394 0)
+		(at 164.846 106.426 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -774,7 +774,7 @@
 		(dnp no)
 		(uuid "92f8a9e5-d266-4364-a949-38f3cd0b14a3")
 		(property "Reference" "#PWR039"
-			(at 156.21 110.744 0)
+			(at 164.846 112.776 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -783,7 +783,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 152.908 106.426 0)
+			(at 161.544 108.458 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -791,7 +791,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 156.21 104.394 0)
+			(at 164.846 106.426 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -800,7 +800,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 156.21 104.394 0)
+			(at 164.846 106.426 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -809,7 +809,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 156.21 104.394 0)
+			(at 164.846 106.426 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -831,7 +831,7 @@
 	)
 	(symbol
 		(lib_id "power:VDD")
-		(at 159.004 77.47 0)
+		(at 167.64 79.502 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -840,7 +840,7 @@
 		(fields_autoplaced yes)
 		(uuid "b7f6ceca-4e8d-437a-aec9-2bb94db7412b")
 		(property "Reference" "#PWR038"
-			(at 159.004 81.28 0)
+			(at 167.64 83.312 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -849,7 +849,7 @@
 			)
 		)
 		(property "Value" "VDD"
-			(at 159.004 73.152 0)
+			(at 167.64 75.184 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -857,7 +857,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 159.004 77.47 0)
+			(at 167.64 79.502 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -866,7 +866,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 159.004 77.47 0)
+			(at 167.64 79.502 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -875,7 +875,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"VDD\""
-			(at 159.004 77.47 0)
+			(at 167.64 79.502 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -897,7 +897,7 @@
 	)
 	(symbol
 		(lib_id "project241_sym:Lora_RA_02")
-		(at 139.446 93.218 0)
+		(at 148.082 95.25 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -905,7 +905,7 @@
 		(dnp no)
 		(uuid "f0e6b883-47fb-4cc3-ba75-76b1d7b08a51")
 		(property "Reference" "U4"
-			(at 139.446 75.692 0)
+			(at 148.082 77.724 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -913,7 +913,7 @@
 			)
 		)
 		(property "Value" "RA02"
-			(at 139.446 77.978 0)
+			(at 148.082 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -921,7 +921,7 @@
 			)
 		)
 		(property "Footprint" "project241_footprint:RA-02"
-			(at 138.176 110.998 0)
+			(at 146.812 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -930,7 +930,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 139.446 91.948 0)
+			(at 148.082 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -939,7 +939,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 139.446 91.948 0)
+			(at 148.082 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)

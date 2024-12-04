@@ -17,7 +17,7 @@
 	)
 	(wire
 		(pts
-			(xy 170.18 118.11) (xy 182.88 118.11)
+			(xy 170.18 123.698) (xy 182.88 123.698)
 		)
 		(stroke
 			(width 0)
@@ -27,13 +27,23 @@
 	)
 	(wire
 		(pts
-			(xy 170.18 115.57) (xy 182.88 115.57)
+			(xy 170.18 121.158) (xy 182.88 121.158)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "60d3e8a9-688f-40f3-bcc5-495b15afaea6")
+	)
+	(wire
+		(pts
+			(xy 170.18 117.856) (xy 182.88 117.856)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7c46decf-2ee5-4ede-a4e5-c31ef773130a")
 	)
 	(wire
 		(pts
@@ -74,6 +84,16 @@
 			(type default)
 		)
 		(uuid "ca842154-ed62-49c6-9ffc-b679fd777bbf")
+	)
+	(wire
+		(pts
+			(xy 170.18 115.062) (xy 182.88 115.062)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d74e50fa-55df-43ec-ae23-29673ac737bb")
 	)
 	(wire
 		(pts
@@ -145,7 +165,7 @@
 	)
 	(sheet
 		(at 182.88 104.14)
-		(size 24.384 17.78)
+		(size 24.384 25.146)
 		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
@@ -165,7 +185,7 @@
 			)
 		)
 		(property "Sheetfile" "SENS.kicad_sch"
-			(at 182.88 122.5046 0)
+			(at 182.88 129.8706 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -194,7 +214,7 @@
 			(uuid "1d07a268-99db-4258-ade8-f8460efcee23")
 		)
 		(pin "RAIN_GAUSE" input
-			(at 182.88 115.57 180)
+			(at 182.88 121.158 180)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -204,7 +224,7 @@
 			(uuid "5f101b9e-653d-46d4-986b-9361c6edd2a6")
 		)
 		(pin "WIND_SPEED" input
-			(at 182.88 118.11 180)
+			(at 182.88 123.698 180)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -212,6 +232,26 @@
 				(justify left)
 			)
 			(uuid "b53859c3-98ee-4b51-bc3f-b25aa5cff1dc")
+		)
+		(pin "GPS_TX" input
+			(at 182.88 115.062 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "f66db8e5-ce72-45db-ac4b-e9d8bbd3d06c")
+		)
+		(pin "GPS_RX" input
+			(at 182.88 117.856 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "22888745-73b3-4fc6-9410-9684b3b39db2")
 		)
 		(instances
 			(project "Project_241"
@@ -291,16 +331,6 @@
 			)
 			(uuid "d1cfffd2-709c-4a00-8473-c263507ca5ba")
 		)
-		(pin "RESET" input
-			(at 182.88 76.2 180)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-			(uuid "49fd170a-2750-4a4b-a123-7b6b396a40a2")
-		)
 		(pin "NSS" input
 			(at 182.88 78.74 180)
 			(effects
@@ -310,6 +340,16 @@
 				(justify left)
 			)
 			(uuid "d1ca9e0b-b7c3-4abe-822b-308d397efcfc")
+		)
+		(pin "LORA_RESET" input
+			(at 182.88 76.2 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "b97ad7a5-7e4a-450f-95df-66731a83e6f2")
 		)
 		(instances
 			(project "Project_241"
@@ -321,7 +361,7 @@
 	)
 	(sheet
 		(at 119.634 72.39)
-		(size 50.546 51.054)
+		(size 50.546 56.896)
 		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
@@ -341,7 +381,7 @@
 			)
 		)
 		(property "Sheetfile" "MCU.kicad_sch"
-			(at 119.634 124.0286 0)
+			(at 119.634 129.8706 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -370,7 +410,7 @@
 			(uuid "d475e0ad-20ac-4bf0-9046-c2408f97b0ca")
 		)
 		(pin "WIND_SPEED" input
-			(at 170.18 118.11 0)
+			(at 170.18 123.698 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -380,7 +420,7 @@
 			(uuid "79cf0138-35ee-4725-8a8e-78597ecd55ac")
 		)
 		(pin "RAIN_GAUSE" input
-			(at 170.18 115.57 0)
+			(at 170.18 121.158 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -439,7 +479,27 @@
 			)
 			(uuid "cffc4ead-7d46-4477-a927-483b1766eb98")
 		)
-		(pin "RESET" input
+		(pin "GPS_RX" input
+			(at 170.18 117.856 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "b66f5916-b03d-4813-a040-c355f0504422")
+		)
+		(pin "GPS_TX" input
+			(at 170.18 115.062 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "371bc15d-8c23-4462-9e63-d249139a31fb")
+		)
+		(pin "LORA_RESET" input
 			(at 170.18 76.2 0)
 			(effects
 				(font
@@ -447,7 +507,7 @@
 				)
 				(justify right)
 			)
-			(uuid "157caf89-f241-4c50-b908-b97941822d54")
+			(uuid "d729903f-17ae-41b9-b731-d8765d5a287a")
 		)
 		(instances
 			(project "Project_241"

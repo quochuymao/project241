@@ -1,4 +1,4 @@
-24848248743947282
+24858629578493966
 ADS122C04
 SOP65P640X120-16N
 PW (R-PDSO-G16)
@@ -100015,6 +100015,27 @@ igbt diode module
 0
 25
 25
+Transmit_Board_Lib
+BH_2_AA
+
+
+0
+4
+4
+Transmit_Board_Lib
+DSE0006A
+
+TPS610986DSER 
+0
+6
+6
+Transmit_Board_Lib
+HRS_U_FL_R_SMT_01
+
+
+0
+3
+3
 Valve
 Valve_ECC-83-1
 Valve ECC-83-1 round pins
@@ -100801,6 +100822,27 @@ Varistor VF
 2
 W3008
 ANTENNA_W3008
+
+
+0
+3
+3
+project241_footprint
+ANT_SMA_3PIN
+
+
+0
+3
+3
+project241_footprint
+EVM3ESX50B14
+EVM3ESX50B14-2
+Variable Resistor
+0
+3
+3
+project241_footprint
+Poten_3PIN_SMD
 
 
 0

@@ -1,0 +1,5 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "2024-11-10_06-15-24")(type "KiCad")(uri "C:/BACHKHOA/HK241/DOANTOTNGHIEP/project241/PCB_MASTER/lib/kicad_pool/ESP32-WROOM-32U-N16/KiCADv6/2024-11-10_06-15-24.kicad_sym")(options "")(descr ""))
+  (lib (name "Master_Board")(type "KiCad")(uri "C:/BACHKHOA/HK241/DOANTOTNGHIEP/project241/PCB_MASTER/lib/sym/Master_Board.kicad_sym")(options "")(descr ""))
+)

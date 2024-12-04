@@ -1,0 +1,154 @@
+(footprint "Poten_3PIN_SMD"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 4.9 -0.066 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "a8621cc0-e2a8-41d6-987f-24f31acc5d07")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Value" "Poten_3PIN_SMD"
+		(at 0 5.4 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "9c9bd8dc-69de-4887-bfb3-250763c5d83a")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Footprint" ""
+		(at 0.05 -0.066 -90)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "0eb811a3-8d44-4a25-9d92-c1b4283261cd")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0.05 -0.066 -90)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "04176bf0-f30c-40f4-aba8-894defdec0f1")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0.05 -0.066 -90)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "d9514370-1780-4aa2-9536-48ff449cdc76")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_rect
+		(start -0.55 -3.65)
+		(end 2.55 0.1)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(fill none)
+		(layer "F.SilkS")
+		(uuid "423f9969-a7b1-4773-a98b-e47b2085d4de")
+	)
+	(fp_circle
+		(center 1 -1.5)
+		(end 1.5 -1.5)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(fill none)
+		(layer "F.SilkS")
+		(uuid "2c111850-3cda-46d5-b64b-d0eb6c5d05a1")
+	)
+	(fp_rect
+		(start -0.8 -4.3)
+		(end 2.8 0.9)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(fill none)
+		(layer "F.CrtYd")
+		(uuid "29b38815-a92e-498d-93aa-58130d8312db")
+	)
+	(fp_circle
+		(center 1 -1.5)
+		(end 0.942 -1.011)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill none)
+		(layer "F.Fab")
+		(uuid "c37445f4-000e-4dc2-8b9f-77f75cc18e0c")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 3.8 0)
+		(layer "F.Fab")
+		(uuid "01237679-555a-42a9-865d-642c21ef4319")
+		(effects
+			(font
+				(size 0.68 0.68)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd rect
+		(at 0 0 270)
+		(size 1.2 1.2)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "856dd944-5dee-49c0-8995-9bab78a68226")
+	)
+	(pad "2" smd rect
+		(at 1 -3.25 270)
+		(size 1.5 1.6)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "6a3d2104-d62d-4167-8560-1a1c646104ff")
+	)
+	(pad "3" smd rect
+		(at 2 0 270)
+		(size 1.2 1.2)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "7b96a11e-b5d7-46be-9371-03287e37883f")
+	)
+	(model "C:/BACHKHOA/HK241/DOANTOTNGHIEP/project241/PCB/lib/3D/EVM-3ESX50B14.stp"
+		(offset
+			(xyz 1 1.5 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)

@@ -1,0 +1,19 @@
+.EVM-3ESX50B14 :1 ;Variable Resistors +/-25% 10KOhms +/-250 ppm/C SMD RoHS
+EVM3ESX50B14
+*STM VR
+*NGS
+*PNM 1=A1 2=B1 3=C1
+*PLB 1="A1" 2="B1" 3="C1"
+*MXP 3
+*DFN EVM-3ESX50B14
+~!Manufacturer_Name (Panasonic)
+~!Manufacturer_Part_Number (EVM-3ESX50B14)
+~!Mouser Part Number (667-EVM-3ESX50B14)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/Panasonic/EVM-3ESX50B14?qs=W5Ux%2F5YWIN6KGDoxXL8LqQ%3D%3D)
+~!Arrow Part Number (-)
+~!Arrow Price/Stock (-)
+~!Link Datasheet (https://industrial.panasonic.com/cdbs/www-data/pdf/AOI0000/AOI0000C51.pdf)
+~!Height (1.62mm)
+~!3D_Model (EVM-3ESX50B14)
+EVM-3ESX50B14
+1.1!U 2.1!U 3.1!U 
