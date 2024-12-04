@@ -21,7 +21,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "lora.h"
+#include <stdlib.h>
+#include "hdc1080.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -45,11 +47,28 @@ I2C_HandleTypeDef hi2c1;
 SPI_HandleTypeDef hspi1;
 
 UART_HandleTypeDef huart1;
-
-PCD_HandleTypeDef hpcd_USB_FS;
+UART_HandleTypeDef huart3;
 
 /* USER CODE BEGIN PV */
+LoRa myLoRa;
+uint8_t LoRa_stat = 0;
+uint8_t RxBuffer[128];
 
+float wind_speed = 0;
+uint32_t wind_count = 0;
+uint32_t package =0;
+extern check;
+int __io_putchar(int ch)
+{
+  uint8_t temp = ch;
+  HAL_UART_Transmit(&huart3, &temp, 1, HAL_MAX_DELAY);
+  return ch;
+}
+
+volatile float temp;
+volatile uint8_t humi;
+volatile uint8_t read_data[2];
+volatile uint16_t reg=0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -57,8 +76,8 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_I2C1_Init(void);
 static void MX_USART1_UART_Init(void);
-static void MX_USB_PCD_Init(void);
 static void MX_SPI1_Init(void);
+static void MX_USART3_UART_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -99,9 +118,59 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C1_Init();
   MX_USART1_UART_Init();
-  MX_USB_PCD_Init();
   MX_SPI1_Init();
+  MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
+  hdc1080_init(&hi2c1,Temperature_Resolution_14_bit,Humidity_Resolution_14_bit);
+  HAL_GPIO_WritePin(TEST_GPIO_Port, TEST_Pin, 1);
+  HAL_Delay(2000);
+  myLoRa = newLoRa();
+
+  myLoRa.CS_port         = NSS_GPIO_Port;
+  myLoRa.CS_pin          = NSS_Pin;
+  myLoRa.reset_port      = RST_GPIO_Port;
+  myLoRa.reset_pin       = RST_Pin;
+  myLoRa.DIO0_port       = DIO0_GPIO_Port;
+  myLoRa.DIO0_pin        = DIO0_Pin;
+  myLoRa.hSPIx           = &hspi1;
+
+
+  myLoRa.frequency             = 433;             // default = 433 MHz
+  myLoRa.spredingFactor        = SF_7;            // default = SF_7
+  myLoRa.bandWidth             = BW_125KHz;       // default = BW_125KHz
+  myLoRa.crcRate               = CR_4_5;          // default = CR_4_5
+  myLoRa.power                 = POWER_20db;      // default = 20db
+  myLoRa.overCurrentProtection = 100;             // default = 100 mA
+  myLoRa.preamble              = 8;              // default = 8;
+
+  LoRa_reset(&myLoRa);
+  if(LoRa_init(&myLoRa)==LORA_OK){
+	  LoRa_stat = 1;
+	  HAL_GPIO_WritePin(TEST_GPIO_Port, TEST_Pin, 0);
+  }
+
+
+  LoRa_startReceiving(&myLoRa);
+
+  uint8_t TxBuffer[128];
+  TxBuffer[0] = '2';
+  TxBuffer[1] = '5';
+  TxBuffer[2] = '&';
+  TxBuffer[3] = '6';
+  TxBuffer[4] = '7';
+
+
+  uint8_t TxBuffer_1[128];
+  TxBuffer_1[0] = 'H';
+  TxBuffer_1[1] = 'E';
+  TxBuffer_1[2] = 'L';
+
+
+  RxBuffer[0] = '2';
+  RxBuffer[1] = '5';
+  RxBuffer[2] = '&';
+  RxBuffer[3] = '6';
+  RxBuffer[4] = '7';
 
   /* USER CODE END 2 */
 
@@ -112,6 +181,18 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+		if(check == 1)
+		{
+			wind_speed = 0.48*wind_count;
+			check = 0;
+			wind_count = 0;
+			hdc1080_start_measurement(&hi2c1,(float*)&temp,(uint8_t*)&humi);
+			snprintf(TxBuffer,sizeof(TxBuffer),"package %d,Toc do gio: %.2f, Luong mua: %d\r\nNhiet do: %.2f, Do am: %d\r\n",package,wind_speed,0,temp,humi);
+			HAL_UART_Transmit(&huart3, (uint8_t*)TxBuffer, strlen(TxBuffer), HAL_MAX_DELAY);
+			package++;
+			LoRa_transmit(&myLoRa, TxBuffer, strlen(TxBuffer), 1000);
+
+		}
   }
   /* USER CODE END 3 */
 }
@@ -124,7 +205,6 @@ void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-  RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
 
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
@@ -151,12 +231,6 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USB;
-  PeriphClkInit.UsbClockSelection = RCC_USBCLKSOURCE_PLL;
-  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {
     Error_Handler();
   }
@@ -218,7 +292,7 @@ static void MX_SPI1_Init(void)
   hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
-  hspi1.Init.NSS = SPI_NSS_HARD_OUTPUT;
+  hspi1.Init.NSS = SPI_NSS_SOFT;
   hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_4;
   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
@@ -268,33 +342,35 @@ static void MX_USART1_UART_Init(void)
 }
 
 /**
-  * @brief USB Initialization Function
+  * @brief USART3 Initialization Function
   * @param None
   * @retval None
   */
-static void MX_USB_PCD_Init(void)
+static void MX_USART3_UART_Init(void)
 {
 
-  /* USER CODE BEGIN USB_Init 0 */
+  /* USER CODE BEGIN USART3_Init 0 */
 
-  /* USER CODE END USB_Init 0 */
+  /* USER CODE END USART3_Init 0 */
 
-  /* USER CODE BEGIN USB_Init 1 */
+  /* USER CODE BEGIN USART3_Init 1 */
 
-  /* USER CODE END USB_Init 1 */
-  hpcd_USB_FS.Instance = USB;
-  hpcd_USB_FS.Init.dev_endpoints = 8;
-  hpcd_USB_FS.Init.speed = PCD_SPEED_FULL;
-  hpcd_USB_FS.Init.low_power_enable = DISABLE;
-  hpcd_USB_FS.Init.lpm_enable = DISABLE;
-  hpcd_USB_FS.Init.battery_charging_enable = DISABLE;
-  if (HAL_PCD_Init(&hpcd_USB_FS) != HAL_OK)
+  /* USER CODE END USART3_Init 1 */
+  huart3.Instance = USART3;
+  huart3.Init.BaudRate = 115200;
+  huart3.Init.WordLength = UART_WORDLENGTH_8B;
+  huart3.Init.StopBits = UART_STOPBITS_1;
+  huart3.Init.Parity = UART_PARITY_NONE;
+  huart3.Init.Mode = UART_MODE_TX_RX;
+  huart3.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart3.Init.OverSampling = UART_OVERSAMPLING_16;
+  if (HAL_UART_Init(&huart3) != HAL_OK)
   {
     Error_Handler();
   }
-  /* USER CODE BEGIN USB_Init 2 */
+  /* USER CODE BEGIN USART3_Init 2 */
 
-  /* USER CODE END USB_Init 2 */
+  /* USER CODE END USART3_Init 2 */
 
 }
 
@@ -316,24 +392,46 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, TEST_Pin|LED_PC14_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(RESET_LORA_GPIO_Port, RESET_LORA_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, RST_Pin|NSS_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : PC13 */
-  GPIO_InitStruct.Pin = GPIO_PIN_13;
+  /*Configure GPIO pins : TEST_Pin LED_PC14_Pin */
+  GPIO_InitStruct.Pin = TEST_Pin|LED_PC14_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : RESET_LORA_Pin */
-  GPIO_InitStruct.Pin = RESET_LORA_Pin;
+  /*Configure GPIO pins : RST_Pin NSS_Pin */
+  GPIO_InitStruct.Pin = RST_Pin|NSS_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(RESET_LORA_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : DIO0_Pin */
+  GPIO_InitStruct.Pin = DIO0_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(DIO0_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : WIND_Pin RAIN_Pin */
+  GPIO_InitStruct.Pin = WIND_Pin|RAIN_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI3_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI3_IRQn);
+
+  HAL_NVIC_SetPriority(EXTI4_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI4_IRQn);
+
+  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
