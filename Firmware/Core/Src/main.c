@@ -56,6 +56,8 @@ uint8_t RxBuffer[128];
 
 float wind_speed = 0;
 uint32_t wind_count = 0;
+uint32_t rain_count =0;
+float rain_fall=0;
 uint32_t package =0;
 extern check;
 int __io_putchar(int ch)
@@ -150,27 +152,8 @@ int main(void)
   }
 
 
-  LoRa_startReceiving(&myLoRa);
-
   uint8_t TxBuffer[128];
-  TxBuffer[0] = '2';
-  TxBuffer[1] = '5';
-  TxBuffer[2] = '&';
-  TxBuffer[3] = '6';
-  TxBuffer[4] = '7';
 
-
-  uint8_t TxBuffer_1[128];
-  TxBuffer_1[0] = 'H';
-  TxBuffer_1[1] = 'E';
-  TxBuffer_1[2] = 'L';
-
-
-  RxBuffer[0] = '2';
-  RxBuffer[1] = '5';
-  RxBuffer[2] = '&';
-  RxBuffer[3] = '6';
-  RxBuffer[4] = '7';
 
   /* USER CODE END 2 */
 
@@ -183,11 +166,13 @@ int main(void)
     /* USER CODE BEGIN 3 */
 		if(check == 1)
 		{
-			wind_speed = 0.48*wind_count;
+			wind_speed = 0.088*wind_count;
+			rain_fall = 0.174*rain_count;
 			check = 0;
 			wind_count = 0;
+			rain_count = 0;
 			hdc1080_start_measurement(&hi2c1,(float*)&temp,(uint8_t*)&humi);
-			snprintf(TxBuffer,sizeof(TxBuffer),"package %d,Toc do gio: %.2f, Luong mua: %d\r\nNhiet do: %.2f, Do am: %d\r\n",package,wind_speed,0,temp,humi);
+			snprintf(TxBuffer,sizeof(TxBuffer),"package %d,Toc do gio: %.2f, Luong mua: %.2f\r\nNhiet do: %.2f, Do am: %d\r\n",package,wind_speed,rain_fall,temp,humi);
 			HAL_UART_Transmit(&huart3, (uint8_t*)TxBuffer, strlen(TxBuffer), HAL_MAX_DELAY);
 			package++;
 			LoRa_transmit(&myLoRa, TxBuffer, strlen(TxBuffer), 1000);
@@ -438,7 +423,25 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
+	if(GPIO_Pin == myLoRa.DIO0_pin){
+		//HAL_GPIO_TogglePin(TEST_GPIO_Port, TEST_Pin);
+		//HAL_Delay(2000);
+		  LoRa_receive(&myLoRa, RxBuffer, 128);
+		  printf(RxBuffer);
+	}
+	if(GPIO_Pin == WIND_Pin)
+	{
+		//HAL_GPIO_TogglePin(TEST_GPIO_Port, TEST_Pin);
+		wind_count++;
+		//printf("%d\n",wind_count);
 
+	}
+	if(GPIO_Pin == RAIN_Pin)
+	{
+		rain_count++;
+	}
+}
 /* USER CODE END 4 */
 
 /**
