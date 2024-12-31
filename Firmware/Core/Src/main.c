@@ -53,6 +53,7 @@ UART_HandleTypeDef huart3;
 LoRa myLoRa;
 uint8_t LoRa_stat = 0;
 uint8_t RxBuffer[128];
+int			RSSI;
 
 float wind_speed = 0;
 uint32_t wind_count = 0;
@@ -138,8 +139,8 @@ int main(void)
 
 
   myLoRa.frequency             = 433;             // default = 433 MHz
-  myLoRa.spredingFactor        = SF_7;            // default = SF_7
-  myLoRa.bandWidth             = BW_125KHz;       // default = BW_125KHz
+  myLoRa.spredingFactor        = SF_11;            // default = SF_7
+  myLoRa.bandWidth             = BW_62_5KHz;       // default = BW_125KHz
   myLoRa.crcRate               = CR_4_5;          // default = CR_4_5
   myLoRa.power                 = POWER_20db;      // default = 20db
   myLoRa.overCurrentProtection = 100;             // default = 100 mA
@@ -151,6 +152,7 @@ int main(void)
 	  HAL_GPIO_WritePin(TEST_GPIO_Port, TEST_Pin, 0);
   }
 
+  LoRa_startReceiving(&myLoRa);
 
   uint8_t TxBuffer[128];
 
@@ -170,7 +172,6 @@ int main(void)
 			rain_fall = 0.174*rain_count;
 			check = 0;
 			wind_count = 0;
-			rain_count = 0;
 			hdc1080_start_measurement(&hi2c1,(float*)&temp,(uint8_t*)&humi);
 			snprintf(TxBuffer,sizeof(TxBuffer),"package %d,Toc do gio: %.2f, Luong mua: %.2f\r\nNhiet do: %.2f, Do am: %d\r\n",package,wind_speed,rain_fall,temp,humi);
 			HAL_UART_Transmit(&huart3, (uint8_t*)TxBuffer, strlen(TxBuffer), HAL_MAX_DELAY);
